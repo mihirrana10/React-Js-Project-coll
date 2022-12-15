@@ -1,0 +1,6 @@
+
+// React js Date Function and Year function 
+
+{`${new Date().getFullYear()}`}
+
+// end Of footer useing in get year ..
