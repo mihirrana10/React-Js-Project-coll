@@ -1,0 +1,96 @@
+import React, { useState ,useEffect} from "react"
+import { Link } from 'react-router-dom';
+import axios from "axios";
+
+
+const Viewusers = async () => {
+    const result = await axios.get("http://localhost/reactjs_project/view.php");
+    setUser(result.data.phpresult);
+   // console.log(result.data.result);
+
+  };
+
+  useEffect(() => {
+    Viewusers();
+  }, []);
+
+
+
+ function functionname
+//{
+  return (
+    <>
+          <div className="container-scroller">
+     <Sidebar></Sidebar>
+       <div className="container-fluid page-body-wrapper">
+         <Setting></Setting>
+        <Headar></Headar>
+         <div className="main-panel">
+         <div class="mx-auto" style={{width: "400px"}}>
+         <br/><br/><br/>
+         
+           <h1>My Name Is (using Props) <b>{name}</b>.</h1>
+           <p>My favorite design tool is <b>{tool}</b>.</p>
+           <br/>
+           <p>My Time is (using useState)<br/> {date}!</p>
+           </div>
+           <div class="col-lg-12 grid-margin stretch-card">
+                 <div class="card">
+                   <div class="card-body">
+                     <h4 class="card-title">Data View</h4>
+                    
+                     <div class="table-responsive">
+                       <table class="table table-striped">
+                         <thead>
+                           <tr>
+                             <th>No.</th>
+                             <th>First name</th>
+                             <th>Last Name</th>
+                             <th>Email</th>
+                             <th>Action</th>
+                           </tr>
+                         </thead>
+                         <tbody>
+                         {user.map((res)=>
+ 
+ <tr>
+         <td>{res.id}</td>
+         <td>{res.first_name}</td>
+         <td>{res.last_name}</td>
+         <td>{res.email}</td>
+         <td>
+           
+           <Link className="btn btn-outline-primary ml-2"  style={{color: "black"}} to={"EditUser/"+res.id}>Edit</Link> {'\u00A0'}
+        
+ 
+         </td>
+        
+ </tr>
+ )}
+                         </tbody>
+                         <ReactPaginate
+                                     className="pagination-data"
+                                     showTotal={(total, range) => `Showing ${range[0]}-${range[1]} of ${total}`}
+                                     onChange={PaginationChange}
+                                     total={Viewusers.length}
+                                     current={current}
+                                     pageSize={size}
+                                     showSizeChanger={false}
+                                     itemRender={PrevNextArrow}
+                                     onShowSizeChange={PerPageChange}
+                                 />
+                       </table>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+           {/* <Footer></Footer> */}
+         </div>
+        
+       </div>
+      
+     </div>
+    </>
+   )
+                        //  }
+ 
